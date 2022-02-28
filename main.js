@@ -1,4 +1,6 @@
 var numeros = [];
+var operacao = 0;
+var resultadoNumero = 0;
 
 function limpar() {
     var resultado = document.getElementById('result');
@@ -68,6 +70,56 @@ function clicaSoma() {
     var numero = parseInt(document.getElementById('result').innerText,10);
     console.log("numero: " + numero);
     numeros.push(numero);
+    console.log(numeros);
+    limpar();
+    operacao = 1;
+}
+
+function clicaSubtracao() {
+    var numero = parseInt(document.getElementById('result').innerText,10);
+    console.log("numero: " + numero);
+    numeros.push(numero);
+    console.log(numeros);
+    limpar();
+    operacao = 2;
+}
+
+function clicaMultiplicacao() {
+    var numero = parseInt(document.getElementById('result').innerText,10);
+    console.log("numero: " + numero);
+    numeros.push(numero);
+    console.log(numeros);
+    limpar();
+    operacao = 3;
+}
+
+function clicaDivisao() {
+    var numero = parseInt(document.getElementById('result').innerText,10);
+    console.log("numero: " + numero);
+    numeros.push(numero);
+    console.log(numeros);
+    limpar();
+    operacao = 4;
+}
+
+function clicaIgual() {
+    switch(operacao) {
+        case 1:
+            resultadoNumero = numeros.reduce((a,b) => a + b);
+            break;
+        case 2:
+            resultadoNumero = numeros.reduce((a,b) => a - b);
+            break;
+        case 3:
+            resultadoNumero = numeros.reduce((a,b) => a * b);
+            break;
+        case 4:
+            resultadoNumero = numeros.reduce((a,b) => a / b);
+            break;
+    }
+
+    document.getElementById('result').innerText = resultadoNumero;
+    numeros = [];
     console.log(numeros);
 }
   
